@@ -152,22 +152,6 @@ Response format:
   - User avatars
   - Display dropdown
 
-## ⚙️ Development Guidelines
-
-1. **CSS Guidelines:**
-   - No CSS libraries (Bootstrap, Tailwind, etc.)
-   - Use pure CSS only
-   - BEM naming convention recommended
-
-2. **React Guidelines:**
-   - No additional frameworks (Next.js, etc.)
-   - Keep components focused and reusable
-   - Maintain proper component hierarchy
-
-3. **Code Style:**
-   - Use meaningful variable and function names
-   - Add comments for complex logic
-   - Follow React best practices
 
 ## 🔍 Future Improvements
 
