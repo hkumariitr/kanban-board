@@ -1,0 +1,209 @@
+.kanban-container {
+    min-height: 100vh;
+    background-color: #f4f5f8;
+  }
+  
+  .kanban-header {
+    padding: 16px;
+    border-bottom: 1px solid #e6e7eb;
+    background-color: #ffffff;
+  }
+  
+  .display-button-container {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  
+  .display-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    border: 1px solid #e6e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .display-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    width: 256px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    z-index: 1000;
+  }
+  
+  .dropdown-section {
+    margin-bottom: 16px;
+  }
+  
+  .dropdown-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .dropdown-label {
+    display: block;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+  
+  .dropdown-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e6e7eb;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .kanban-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .kanban-column {
+    background-color: #f4f5f8;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  
+  .column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  
+  .column-header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .column-title {
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .ticket-count {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .add-button,
+  .more-button {
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+.status-todo img,
+.status-progress img,
+.status-done img,
+.status-backlog img,
+.status-canceled img,
+.icon-urgent img,
+.icon-high img,
+.icon-medium img,
+.icon-low img,
+.icon-no-priority img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+  
+  .add-button:hover,
+  .more-button:hover {
+    background-color: #e6e7eb;
+  }
+  
+  .ticket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .ticket-card {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  
+  .ticket-id {
+    color: #6b7280;
+    font-size: 14px;
+  }
+  
+  .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bcbcbc;
+  }
+  
+  .ticket-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    margin: 0;
+    flex: 1;
+  }
+  
+  .ticket-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .ticket-tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background-color: #f4f5f8;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  .ticket-title-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .status-icon img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .kanban-board {
+      grid-template-columns: 1fr;
+    }
+  
+    .display-dropdown {
+      width: 100%;
+    }
+  }
+
