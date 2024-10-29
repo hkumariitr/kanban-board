@@ -1,70 +1,196 @@
-# Getting Started with Create React App
+# Kanban Board Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A dynamic and interactive Kanban board built with React.js that allows users to visualize and organize tickets based on different grouping and sorting criteria.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Dynamic Grouping Options:**
+  - By Status (Todo, In Progress, Done, etc.)
+  - By User (Assigned team members)
+  - By Priority (Urgent, High, Medium, Low, No Priority)
 
-### `npm start`
+- **Flexible Sorting:**
+  - By Priority (Descending order)
+  - By Title (Alphabetical order)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Persistent View State:** User's grouping and sorting preferences are saved across page reloads
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Responsive Design:** Adapts seamlessly to different screen sizes
 
-### `npm test`
+## 🛠️ Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/kanban-board.git
+```
 
-### `npm run build`
+2. Navigate to the project directory:
+```bash
+cd kanban-board
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Start the development server:
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application will open in your default browser at `http://localhost:3000`
 
-### `npm run eject`
+## 🏗️ Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+kanban-board/
+│
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── components/
+│   │   ├── Dashboard.js
+│   │   └── UserAvatar.js
+│   │
+│   ├── icons_FEtask/
+│   │   ├── add.svg
+│   │   ├── Display.svg
+│   │   ├── Done.svg
+│   │   └── ... (other icons)
+│   │
+│   ├── App.js
+│   ├── index.js
+│   └── dashboard.css
+│
+├── README.md
+└── package.json
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎯 Core Functionality
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Grouping Options
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **By Status**
+   - Groups tickets based on their current status
+   - Status categories: Todo, In Progress, Done, Backlog, Canceled
 
-## Learn More
+2. **By User**
+   - Organizes tickets according to assigned team members
+   - Includes an "Unassigned" group for tickets without assignees
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **By Priority**
+   - Groups tickets based on priority levels:
+     - Urgent (Level 4)
+     - High (Level 3)
+     - Medium (Level 2)
+     - Low (Level 1)
+     - No Priority (Level 0)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Sorting Options
 
-### Code Splitting
+- **Priority:** Sorts tickets in descending order of priority level
+- **Title:** Sorts tickets alphabetically by title
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 💻 Technical Implementation
 
-### Analyzing the Bundle Size
+### API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The application fetches data from:
+```
+https://api.quicksell.co/v1/internal/frontend-assignment
+```
 
-### Making a Progressive Web App
+Response format:
+```javascript
+{
+  tickets: [
+    {
+      id: string,
+      title: string,
+      tag: string[],
+      userId: string,
+      status: string,
+      priority: number
+    }
+  ],
+  users: [
+    {
+      id: string,
+      name: string,
+      available: boolean
+    }
+  ]
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### State Management
 
-### Advanced Configuration
+- Uses React's built-in useState hook for local state management
+- Implements localStorage for persisting user preferences
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Key Components
 
-### Deployment
+1. **Dashboard**
+   - Main container component
+   - Handles data fetching and state management
+   - Implements grouping and sorting logic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2. **UserAvatar**
+   - Displays user avatar and availability status
+   - Used in ticket cards and column headers when grouped by user
 
-### `npm run build` fails to minify
+## 🎨 Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Uses pure CSS without any external libraries
+- Implements custom styling for:
+  - Kanban board layout
+  - Ticket cards
+  - Priority indicators
+  - Status icons
+  - User avatars
+  - Display dropdown
+
+## ⚙️ Development Guidelines
+
+1. **CSS Guidelines:**
+   - No CSS libraries (Bootstrap, Tailwind, etc.)
+   - Use pure CSS only
+   - BEM naming convention recommended
+
+2. **React Guidelines:**
+   - No additional frameworks (Next.js, etc.)
+   - Keep components focused and reusable
+   - Maintain proper component hierarchy
+
+3. **Code Style:**
+   - Use meaningful variable and function names
+   - Add comments for complex logic
+   - Follow React best practices
+
+## 🔍 Future Improvements
+
+- Add drag-and-drop functionality
+- Implement ticket creation and editing
+- Add search and filter capabilities
+- Enhance mobile responsiveness
+- Add dark mode support
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests.
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+For major changes, please open an issue first to discuss what you would like to change.
